@@ -4,6 +4,15 @@
 # Mutation - запросы, которые изменяют данные
 
 
+type apiMovie {
+    id: Int!
+    title: String!
+    rating: Float!
+    summary: String!
+    language: String!
+    medium_cover_image: String!
+}
+
 type Movie {
     id: Int!
     name: String!
@@ -13,6 +22,7 @@ type Movie {
 type Query {
     movies: [Movie]!
     movie(id: Int!): Movie
+    apiMovie(limit: Int, rating: Float): [apiMovie]!
 }
 
 type Mutation {

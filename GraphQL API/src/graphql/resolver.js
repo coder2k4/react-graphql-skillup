@@ -1,27 +1,17 @@
-const people = [
-    {
-        id: 1,
-        name: "Alex",
-        age: 33,
-        city: "San Francisco"
-    },
-    {
-        id: 2,
-        name: "Serget",
-        age: 31,
-        city: "San Francisco"
-    },
-    {
-        id: 3,
-        name: "Maxim",
-        age: 30,
-        city: "San Francisco"
-    },
-]
+import {addMovie, getMovieById, movies, removeMovie} from "./db";
+
+/**
+ * Resolvers отвечают за описание логики, отваеты на запросы
+ */
 
 
 export const resolver = {
     Query: {
-        people: () => people
+        movies: () => movies,
+        movie: (_, args) => getMovieById(args.id) // получение аргументов
+    },
+    Mutation: {
+        addMovie: (_, {name, score}) => addMovie(name, score),
+        removeMovie: (_, {id}) => removeMovie(id)
     }
 }

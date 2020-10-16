@@ -1,0 +1,32 @@
+# Описание типов (логические таблицы представления данных)
+# Обязательные:
+# Query - обычные запросы, которые не изменяют данные, а только их получают
+# Mutation - запросы, которые изменяют данные
+
+
+type apiMovie {
+    id: Int!
+    title: String!
+    rating: Float!
+    description_intro: String!
+    language: String!
+    medium_cover_image: String!
+}
+
+type Movie {
+    id: Int!
+    name: String!
+    score: Int!
+}
+
+type Query {
+    movies: [Movie]!
+    movie(id: Int!): Movie
+    apiMovies(limit: Int, rating: Float): [apiMovie]!
+    apiMovie(id:Int!): apiMovie
+}
+
+type Mutation {
+    addMovie(name: String!, score: Int!) : Movie
+    removeMovie(id: Int!): Boolean!
+}

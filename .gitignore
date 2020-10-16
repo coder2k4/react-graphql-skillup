@@ -1,2 +1,4 @@
 # Project exclude paths
 /GraphQL API/node_modules/
+react-graphql-skillup.iml
+.idea
